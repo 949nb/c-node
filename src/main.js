@@ -16,6 +16,8 @@ new Vue({
   components: {App},
   template: '<App/>'
 });
+
+
 Vue.filter('formatDate', function (str) {
   if (!str) return '';
   let date = new Date(str);
@@ -39,15 +41,15 @@ Vue.filter('formatDate', function (str) {
   }
 });
 Vue.filter('tabFormatter',function (post) {
-  if(post.good == true){
+  if(post.good === true){
     return '精华'
-  }else if(post.top == true){
+  }else if(post.top === true){
     return '置顶'
-  }else if(post.tab == 'ask'){
+  }else if(post.tab === 'ask'){
     return '问答'
-  }else if(post.tab == 'share'){
+  }else if(post.tab === 'share'){
     return '分享'
-  }else if(post.tab == 'job'){
+  }else if(post.tab === 'job'){
     return '招聘'
   }
 })

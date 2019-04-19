@@ -21,12 +21,12 @@
           <img :src="post.author.avatar_url" alt="">
           <!--回复/浏览-->
           <span>
-            <span class="reply_count"> {{post.reply_count}} </span>
-            <span class="visit_count"> /{{post.visit_count}} </span>
+            <span class="reply_count">{{post.reply_count}}</span>
+            <span class="visit_count">/{{post.visit_count}} </span>
           </span>
           <!--帖子类别-->
-          <span :class="[{put_good:(post.good == true),put_top:(post.top == true),
-          put_tab:(post.good != true && post.top != true )}]">
+          <span :class="[{put_good:(post.good === true),put_top:(post.top === true),
+          put_tab:(post.good !== true && post.top !== true )}]" class="tab">
             <span>
               {{post | tabFormatter}}
             </span>
@@ -76,11 +76,58 @@
 img{
   width:30px;
   height: 30px;
+  margin-right: 10px;
+  border-radius:5px;
+}
+.tab{
+  background: #E5E5E5;
+  border-radius: 4px;
+  font-size: 12px;
+  padding:1px 5px;
+  color: #999999;
 }
 .put_good{
-  color:red;
+  background-color: #8EBC39;
+  color: white;
 }
 .put_top{
-  color:blue;
+  background-color: #8EBC39;
+  color: white;
+}
+.postList{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.posts > ul{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+.posts > ul > li{
+  height: 50px;
+  list-style: none;
+  border-top: 2px solid #F0F0F0;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.posts > ul > li > span{
+  margin-right: 10px;
+}
+.reply_count,.visit_count{
+  padding: 0;
+  font-size: 14px;
+  color: #9879BB;
+}
+.visit_count{
+  color: #cccccc;
+  font-size: 12px;
+}
+
+.postList > ul > li:not(:first-child){
+  padding: 9px;
+  font-size: 15px;
 }
 </style>

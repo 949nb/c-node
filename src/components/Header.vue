@@ -1,14 +1,16 @@
 <template>
   <div class="header">
-    <img src="../assets/logo.svg" alt="">
-    <ul>
-      <li><a href="#">首页</a></li>
-      <li><a href="#">新手入门</a></li>
-      <li><a href="#">API</a></li>
-      <li><a href="#">关于</a></li>
-      <li><a href="#">注册</a></li>
-      <li><a href="#">登陆</a></li>
-    </ul>
+    <div class="wrapper">
+      <img src="../assets/logo.svg" alt="">
+      <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">新手入门</a></li>
+        <li><a href="#">API</a></li>
+        <li><a href="#">关于</a></li>
+        <li><a href="#">注册</a></li>
+        <li><a href="#">登陆</a></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -22,10 +24,14 @@
   .header{
     background-color: #444444;
     height: 50px;
+
+  }
+  .wrapper{
+    width: 80%;
+    margin: 0 auto;
   }
   img {
     max-width: 150px;
-    margin-left: 50px;
     margin-top: 6px;
   }
   ul{
@@ -35,11 +41,11 @@
   }
   li{
     display: inline-block;
-    padding: 10px 15px;
+    padding: 10px 0px 10px 10px;
   }
   a{
     text-decoration: none;
     color:#ccc;
-    font-size: 16px;
+    font-size: 15px;
   }
 </style>

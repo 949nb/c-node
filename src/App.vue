@@ -4,7 +4,6 @@
     <div class="main">
       <PostList></PostList>
     </div>
-
   </div>
 </template>
 
@@ -23,8 +22,9 @@ export default {
 
 <style scoped>
   .main{
-    max-width: 1200px;
+    max-width: 80%;
     margin: 10px auto;
-    background: #cccccc;
+    background: #FFFFFF;
+
   }
 </style>
