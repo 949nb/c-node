@@ -21,8 +21,9 @@
           <img :src="post.author.avatar_url" alt="">
           <!--回复/浏览-->
           <span>
-            <span class="reply_count">{{post.reply_count}}</span>
-            <span class="visit_count">/{{post.visit_count}} </span>
+            <span class="count">
+              <span class="reply_count">{{post.reply_count}}</span><span class="visit_count">/{{post.visit_count}}</span>
+            </span>
           </span>
           <!--帖子类别-->
           <span :class="[{put_good:(post.good === true),put_top:(post.top === true),
@@ -72,12 +73,16 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 img{
   width:30px;
   height: 30px;
   margin-right: 10px;
   border-radius:5px;
+}
+.title{
+  color: #333333;
+  font-size: 16px;
 }
 .tab{
   background: #E5E5E5;
@@ -103,21 +108,35 @@ img{
   margin:0;
   padding: 0;
   box-sizing: border-box;
-
 }
 .posts > ul > li{
   height: 50px;
   list-style: none;
-  border-top: 2px solid #F0F0F0;
+  border-top: 1px solid #F0F0F0;
   display: flex;
   align-items: center;
   padding-left: 10px;
+  position: relative;
 }
 .posts > ul > li > span{
   margin-right: 10px;
 }
+
+.posts > ul > li > .last_reply{
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  color: #999999;
+}
+.count{
+  margin: -5px;
+  display: inline-block;
+  width: 70px;
+  height:30px;
+  text-align: center;
+}
 .reply_count,.visit_count{
-  padding: 0;
+  margin: 0;
   font-size: 14px;
   color: #9879BB;
 }
@@ -126,8 +145,23 @@ img{
   font-size: 12px;
 }
 
-.postList > ul > li:not(:first-child){
-  padding: 9px;
-  font-size: 15px;
+ul > li:first-child{
+  background-color: #F6F6F6;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 14px;
+  border: none;
+  height: 40px;
+  &>div>span{
+    margin-right: 20px;
+    color: #98BA4F;
+    padding: 1px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+      color: white;
+      background-color: #98BA4F;
+    }
+  }
 }
 </style>

@@ -23,8 +23,8 @@ export default {
 <style scoped>
   .main{
     max-width: 80%;
-    margin: 10px auto;
+    margin: 15px auto;
     background: #FFFFFF;
-
+    border-radius: 5px;
   }
 </style>

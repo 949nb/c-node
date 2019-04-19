@@ -20,7 +20,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .header{
     background-color: #444444;
     height: 50px;
@@ -41,11 +41,14 @@
   }
   li{
     display: inline-block;
-    padding: 10px 0px 10px 10px;
+    padding: 10px 0px 10px 20px;
   }
   a{
     text-decoration: none;
     color:#ccc;
-    font-size: 15px;
+    font-size: 14px;
+    &:hover{
+      color: white;
+    }
   }
 </style>
