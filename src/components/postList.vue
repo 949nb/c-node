@@ -1,11 +1,11 @@
 <template>
   <div class="postList">
-    <div class="loading">
+    <div class="loading" v-if="isLoading">
       <!--在数据为返回的时候，显示加载-->
-      <img src="../assets/Loading.png" v-if="isLoading">
+      <img src="../assets/Loading.png" >
     </div>
     <!--帖子回复列表-->
-    <div class="posts">
+    <div class="posts" v-else>
       <ul>
         <li>
           <div class="topbar">
@@ -14,6 +14,7 @@
             <span>分享</span>
             <span>问答</span>
             <span>招聘</span>
+            <span>客户端测试</span>
           </div>
         </li>
         <li v-for="post in posts">
@@ -33,7 +34,9 @@
             </span>
           </span>
           <!--标题-->
-          <span class="title"> {{post.title}} </span>
+          <router-link :to="{name: 'post_content',params:{id:post.id}}">
+            <span class="title"> {{post.title}} </span>
+          </router-link>
           <!--时间-->
           <span class="last_reply"> {{post.last_reply_at | formatDate}} </span>
         </li>
@@ -59,7 +62,6 @@
         }).then((res) => {
           this.isLoading = false
           this.posts = res.data.data
-          console.log(res);
         }).catch((err)=>{
           //处理返回失败后的问题
           console.log(err)
@@ -162,6 +164,24 @@ ul > li:first-child{
       color: white;
       background-color: #98BA4F;
     }
+  }
+}
+.loading{
+  height: 100vh;
+  text-align: center;
+  & > img{
+    margin-top: 100px;
+    animation: x .7s linear infinite;
+  }
+}
+@keyframes x {
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+a{
+  text-decoration: none;
+  &:active{
+    color: red;
   }
 }
 </style>
