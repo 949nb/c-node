@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Header></Header>
-    <PostList></PostList>
+    <div class="main">
+      <PostList></PostList>
+    </div>
+
   </div>
 </template>
 
@@ -18,6 +21,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  .main{
+    max-width: 1200px;
+    margin: 10px auto;
+    background: #cccccc;
+  }
 </style>
