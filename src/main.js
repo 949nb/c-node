@@ -16,3 +16,8 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+Vue.filter('formatData',function (str) {
+  if(!str) return ''
+  let date = new Data(str)
+  let time = new Data().getTime() - date.getTime()
+})
