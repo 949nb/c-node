@@ -40,14 +40,24 @@
           <!--时间-->
           <span class="last_reply"> {{post.last_reply_at | formatDate}} </span>
         </li>
+        <li>
+          <pagination>
+
+          </pagination>
+        </li>
+
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+  import pagination from "./Pagination"
   export default {
     name: "postList",
+    components:{
+      pagination
+    },
     data() {
       return {
         isLoading: false,
