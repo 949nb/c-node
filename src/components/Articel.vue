@@ -11,7 +11,7 @@
           {{post.title}}
         </h1>
         <ul class="titleInfo">
-          <li> · 发布于：{{post.create_at | formatDate}}</li>
+          <li> · 发布于：{{post.create_at |formatDate}}</li>
           <li> · 作者：{{post.author.loginname}}</li>
           <li> · 浏览次数：{{post.visit_count}}次浏览</li>
           <li> · 来自：{{post | tabFormatter}}</li>
@@ -98,6 +98,7 @@
   }
   .huifucontent{
     margin-left: 50px;
+    margin-right: 50px;
     margin-bottom: 10px;
   }
   .pic {

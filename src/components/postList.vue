@@ -41,7 +41,7 @@
           <span class="last_reply"> {{post.last_reply_at | formatDate}} </span>
         </li>
         <li>
-          <pagination>
+          <pagination @handle="renderList">
 
           </pagination>
         </li>
@@ -61,14 +61,17 @@
     data() {
       return {
         isLoading: false,
-        posts:[]//代表页面的列表数组
+        posts:[],//代表页面的列表数组
+        postPage: 1
       }
     },
     methods:{
       getData(){
         this.$http.get('https://cnodejs.org/api/v1/topics',{
-          page:1,
-          limit:20
+          params:{
+            page:this.postPage,
+            limit:20
+          }
         }).then((res) => {
           this.isLoading = false
           this.posts = res.data.data
@@ -76,11 +79,15 @@
           //处理返回失败后的问题
           console.log(err)
         })
+      },
+      renderList:function (value) {
+        console.log(value);
+        this.postPage = value;
+        this.getData();
       }
     },
     beforeMount() {
       this.isLoading = true;
-      debugger
       this.getData()
     }
   }
