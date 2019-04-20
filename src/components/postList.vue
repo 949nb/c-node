@@ -106,6 +106,8 @@ img{
   margin:0;
   padding:0;
   box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 5px;
 }
 .posts > ul{
   margin:0;
@@ -181,8 +183,5 @@ ul > li:first-child{
 }
 a{
   text-decoration: none;
-  &:active{
-    color: red;
-  }
 }
 </style>

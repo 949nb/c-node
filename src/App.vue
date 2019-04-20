@@ -24,7 +24,6 @@ export default {
   .main{
     max-width: 80%;
     margin: 15px auto;
-    background: #FFFFFF;
     border-radius: 5px;
   }
 </style>

@@ -18,11 +18,12 @@
         </ul>
         <div v-html="post.content" id="content" class="topic_content"></div>
       </div>
-    <div>
+
+    <div class="huifu">
       <div class="topbar">回复</div>
-      <div v-for="(reply,index) in post.replies" class="pic">
-        <div>
-          <router-link :to="{
+      <div v-for="(reply,index) in post.replies" style="border-bottom: 1px solid #F0F0F0">
+        <div class="userfoo">
+          <router-link  class="pic" tag="div" :to="{
           name:'user_info',
           params:{
               name:reply.author.loginname
@@ -30,16 +31,16 @@
           }">
             <img :src="reply.author.avatar_url">
           </router-link>
-          <span>{{reply.author.loginname}}</span>
-          <span>
-          {{index+1}}楼·{{post.create_at | formatDate}}
+          <span style="color: #666666;">{{reply.author.loginname}}</span>
+          <span style="color: #3B86C6;">
+          {{index+1}}楼-{{post.create_at | formatDate}}
         </span>
-          <span v-if="reply.ups.length>0">
+          <span v-if="reply.ups.length>0" style="position: absolute; right: 10px;color: #666666;">
           👍 {{reply.ups.length}}
         </span>
-          <span v-else></span>
+          <span v-else style="position: absolute; right: 10px;color: #666666;">👍0</span>
         </div>
-        <p v-html="reply.content"></p>
+        <p v-html="reply.content" class="huifucontent"></p>
       </div>
     </div>
     </div>
@@ -77,8 +78,48 @@
 
 
 <style lang="scss" scoped>
+  .topic_header{
+    background: #FFFFFF;
+    border-radius: 5px;
+  }
+  .huifu{
+    background: #FFFFFF;
+    border-radius: 5px;
+    position: relative;
+    & > .topbar{
+      background: #F6F6F6;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 5px;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #8EBC39;
+    }
+  }
+  .huifucontent{
+    margin-left: 50px;
+    margin-bottom: 10px;
+  }
+  .pic {
+    display: inline-block;
+    & > img{
+      height: 30px;
+      width: 30px;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  }
+  .userfoo{
+    display: flex;
+    align-items: center;
+    & > span {
+      margin-right: 10px;
+    }
+  }
   .loading{
     height: 100vh;
+    background: #FFFFFF;
     text-align: center;
     & > img{
       margin-right: 10px;
@@ -125,11 +166,6 @@
     font-size: 16px!important;
     line-height: 1.8em;
     color: #333333;
-    border-bottom: 1px solid #cccccc;
-  }
-  .pic > img{
-    height: 30px;
-    width: 30px;
   }
 </style>
 <style>
