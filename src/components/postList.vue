@@ -70,6 +70,7 @@
     },
     beforeMount() {
       this.isLoading = true;
+      debugger
       this.getData()
     }
   }
